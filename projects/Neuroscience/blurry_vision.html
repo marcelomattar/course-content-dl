@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vision with Lost Glasses: Modelling how the brain deals with noisy input &#8212; Neuromatch Academy: Deep Learning</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -59,7 +59,10 @@
     <link rel="next" title="Moving beyond Labels: Finetuning CNNs on BOLD response" href="finetuning_fmri.html" />
     <link rel="prev" title="Load algonauts videos" href="algonauts_videos.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -1264,12 +1267,6 @@ GPU is enabled in this notebook.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_18_1.png" src="../../_images/blurry_vision_18_1.png" />
 </div>
 </div>
@@ -1373,10 +1370,6 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
-  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1539,25 +1532,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">downs
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "c950f06da0ef4605b2a8e2ee90aeaa39", "version_major": 2, "version_minor": 0}
-</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 32 bytes but only got 0. Skipping tag 270
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 5 bytes but only got 0. Skipping tag 271
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 272
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 282
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 283
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 0. Skipping tag 306
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 48 bytes but only got 0. Skipping tag 532
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:788: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0. 
-  warnings.warn(str(msg))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
@@ -1678,25 +1653,7 @@ Accuracy on the 2494 blurry testing samples after training: 72.53
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "00330b93d09543a98d62416046523892", "version_major": 2, "version_minor": 0}
-</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 32 bytes but only got 0. Skipping tag 270
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 5 bytes but only got 0. Skipping tag 271
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 272
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 282
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 283
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 0. Skipping tag 306
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:770: UserWarning: Possibly corrupt EXIF data.  Expecting to read 48 bytes but only got 0. Skipping tag 532
-  &quot; Skipping tag %s&quot; % (size, len(data), tag)
-/usr/local/lib/python3.7/dist-packages/PIL/TiffImagePlugin.py:788: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0. 
-  warnings.warn(str(msg))
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
@@ -1937,24 +1894,12 @@ Accuracy on the 2494 blurry testing samples after training: 77.87
 Before Training
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_48_2.png" src="../../_images/blurry_vision_48_2.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_48_4.png" src="../../_images/blurry_vision_48_4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Training
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_48_7.png" src="../../_images/blurry_vision_48_7.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_48_9.png" src="../../_images/blurry_vision_48_9.png" />
 </div>
 </div>
@@ -1994,35 +1939,17 @@ Before Training
 Before Training
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_2.png" src="../../_images/blurry_vision_51_2.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_4.png" src="../../_images/blurry_vision_51_4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Pretraining
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_7.png" src="../../_images/blurry_vision_51_7.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_9.png" src="../../_images/blurry_vision_51_9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After Training
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_12.png" src="../../_images/blurry_vision_51_12.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
-</div>
 <img alt="../../_images/blurry_vision_51_14.png" src="../../_images/blurry_vision_51_14.png" />
 </div>
 </div>
@@ -2192,31 +2119,22 @@ Before Training
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="algonauts_videos.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Load algonauts videos</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="algonauts_videos.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Load algonauts videos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="finetuning_fmri.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Moving beyond Labels: Finetuning CNNs on BOLD response</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="finetuning_fmri.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Moving beyond Labels: Finetuning CNNs on BOLD response</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -2237,8 +2155,7 @@ Before Training
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
