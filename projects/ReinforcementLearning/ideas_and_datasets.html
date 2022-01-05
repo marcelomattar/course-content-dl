@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -802,7 +802,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -836,7 +836,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -869,7 +869,96 @@
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
+    <!-- Table of contents that is only displayed when printing the page -->
+    <div id="jb-print-docs-body" class="onlyprint">
+        <h1>Ideas</h1>
+        <!-- Table of contents -->
+        <div id="print-main-content" class="row">
+            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
+            <div id="jb-print-toc">
+                
+                <div>
+                    <h2> Contents </h2>
+                </div>
+                <nav aria-label="Page">
+                    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-agent-reinforcement-learning">
+   Multi-agent Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-learning-in-reinforcement-learning">
+   Transfer learning in Reinforcement Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deep-reinforcement-learning-for-traffic-signal-control">
+   Deep Reinforcement Learning for Traffic Signal Control
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-resources">
+   Other resources
+  </a>
+ </li>
+</ul>
+
+                </nav>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="ideas">
+<h1>Ideas<a class="headerlink" href="#ideas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="multi-agent-reinforcement-learning">
+<h2>Multi-agent Reinforcement Learning<a class="headerlink" href="#multi-agent-reinforcement-learning" title="Permalink to this headline">¶</a></h2>
+<p>Instead of having a single agent, in the multi-agent setting, we have multiple agents interacting with each other and the environment. They can have a single common goal (Cooperative environment) or compete on the limited resources. You can expand this formulation to many applications (from natural language processing to computer networks or game theory).</p>
+<p>A simple example of these applications is <a class="reference external" href="https://www.pettingzoo.ml/butterfly/pistonball">pistonball</a> game in which we have some pistons that try to move a ball from right to left. You can make the problem more difficult by adding obstacles or new actions to the agents (pistons).</p>
+<p>The more interesting multi-agent games can be found <a class="reference external" href="https://www.pettingzoo.ml/">here</a>.</p>
+</div>
+<div class="section" id="transfer-learning-in-reinforcement-learning">
+<h2>Transfer learning in Reinforcement Learning<a class="headerlink" href="#transfer-learning-in-reinforcement-learning" title="Permalink to this headline">¶</a></h2>
+<p>It is quite helpful to employ external knowledge earned in other environments and by other agents in our problem. To this aim, we need to initialize our neural networks with the pre-trained models. For instance, an agent’s experience in the PuckWorld game can be used by another one in the Snake game. You can find more details about this example in this <a class="reference external" href="https://web.stanford.edu/class/cs234/past_projects/2017/2017_Asawa_Elamri_Pan_Transfer_Learning_Paper.pdf">paper</a> (they also included their source code).</p>
+<p>There are also many environments in <a class="reference external" href="https://github.com/maximecb/gym-minigrid">minigrid</a> which are suitable for transfer learning.</p>
+</div>
+<div class="section" id="deep-reinforcement-learning-for-traffic-signal-control">
+<h2>Deep Reinforcement Learning for Traffic Signal Control<a class="headerlink" href="#deep-reinforcement-learning-for-traffic-signal-control" title="Permalink to this headline">¶</a></h2>
+<p>Deep RL can be applied to the complex traffic congestion problem in order to decrease travel time, queue length, or the number of stops. The congestion control problem is so complex that we can handle it in 3 weeks. However, some simulators make working on this problem easier for us. You can find them and more materials on this subject, including tutorials, slides, papers, and simulators, <a class="reference external" href="https://traffic-signal-control.github.io/#tutorial">here</a>.</p>
+</div>
+<div class="section" id="other-resources">
+<h2>Other resources<a class="headerlink" href="#other-resources" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://opensourcelibs.com/lib/rl-baselines-zoo">RL baselines zoo</a><br />
+<a class="reference external" href="https://opensourcelibs.com/libs/openai-gym">OpenAI Gym</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/ReinforcementLearning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    <div id="main-content" class="row noprint">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
               <div>
@@ -942,15 +1031,13 @@
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Neuromatch<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Neuromatch<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 

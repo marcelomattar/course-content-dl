@@ -41,7 +41,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -802,7 +802,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -836,12 +836,410 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
+    <!-- Table of contents that is only displayed when printing the page -->
+    <div id="jb-print-docs-body" class="onlyprint">
+        <h1>Timezone widget</h1>
+        <!-- Table of contents -->
+        <div id="print-main-content" class="row">
+            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
+            <div id="jb-print-toc">
+                
+            </div>
+            
+              <div>
+                
+  <div class="section" id="timezone-widget">
+<h1>Timezone widget<a class="headerlink" href="#timezone-widget" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;title&gt;Slot selector&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot; integrity=&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment-with-locales.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data-2012-2022.min.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;div class=&quot;container&quot; style=&quot;max-width: 700px;&quot;&gt;
+    &lt;div class=&quot;card&quot; style=&quot;margin-top: 50px;&quot;&gt;
+        &lt;h5 class=&quot;card-header&quot;&gt;Time slot selector&lt;/h5&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+
+&lt;div&gt;
+    &lt;br/&gt;Students and TAs work on &lt;span style = &quot;color:blue&quot;&gt;&lt;b&gt;synchronous coursework&lt;/b&gt;&lt;/span&gt;
+    and &lt;span style = &quot;color:red&quot;&gt;&lt;b&gt;projects&lt;/b&gt;&lt;/span&gt; in times below. (Mentors help in 
+ &lt;span style = &quot;color:red&quot;&gt;projects&lt;/span&gt; time only. )
+ See times for coursework and projects in each slot below 
+ in your local timezone. &lt;br&gt;
+&lt;br&gt;
+&lt;/div&gt;
+
+&lt;span style = &quot;font-size:13pt; color:green; font-weight:bold&quot;&gt;&lt;i&gt; CHOOSE YOUR TIMEZONE:&lt;/i&gt;&lt;/span&gt; &lt;select class=&quot;js-Selector&quot; onchange=&quot;onChange()&quot; id=&#39;timezone&#39;&gt;
+&lt;/select&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;p&gt;&lt;span style = &quot;font-size:13pt;&quot;&gt;&lt;i&gt; Course times:&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&quot;times&quot;&gt;
+
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;br/&gt;People in your timezone often choose the slot in &lt;b&gt;bold&lt;/b&gt;,
+ but you can choose whichever slot best fits your schedule!
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;br&gt;
+  * If you have issues with the website please try the Chrome browser.
+&lt;/div&gt;
+
+&lt;script&gt;
+// Adapted from https://matall.in/posts/building-an-usable-timezone-selector/ 
+
+const _t = (s) =&gt; {
+    if (i18n !== void 0 &amp;&amp; i18n[s]) {
+      return i18n[s];
+    }
+  
+    return s;
+  };
+  
+  const timezones = [
+    &quot;Etc/GMT+12&quot;,
+    &quot;Pacific/Midway&quot;,
+    &quot;Pacific/Honolulu&quot;,
+    &quot;America/Juneau&quot;,
+    &quot;America/Dawson&quot;,
+    &quot;America/Boise&quot;,
+    &quot;America/Chihuahua&quot;,
+    &quot;America/Phoenix&quot;,
+    &quot;America/Chicago&quot;,
+    &quot;America/Regina&quot;,
+    &quot;America/Mexico_City&quot;,
+    &quot;America/Belize&quot;,
+    &quot;America/Detroit&quot;,
+    &quot;America/Indiana/Indianapolis&quot;,
+    &quot;America/Bogota&quot;,
+    &quot;America/Glace_Bay&quot;,
+    &quot;America/Caracas&quot;,
+    &quot;America/Santiago&quot;,
+    &quot;America/St_Johns&quot;,
+    &quot;America/Sao_Paulo&quot;,
+    &quot;America/Argentina/Buenos_Aires&quot;,
+    &quot;America/Godthab&quot;,
+    &quot;Etc/GMT+2&quot;,
+    &quot;Atlantic/Azores&quot;,
+    &quot;Atlantic/Cape_Verde&quot;,
+    &quot;Europe/London&quot;,
+    &quot;Africa/Casablanca&quot;,
+    &quot;Atlantic/Canary&quot;,
+    &quot;Europe/Belgrade&quot;,
+    &quot;Europe/Sarajevo&quot;,
+    &quot;Europe/Brussels&quot;,
+    &quot;Europe/Amsterdam&quot;,
+    &quot;Africa/Algiers&quot;,
+    &quot;Europe/Bucharest&quot;,
+    &quot;Africa/Cairo&quot;,
+    &quot;Europe/Helsinki&quot;,
+    &quot;Europe/Athens&quot;,
+    &quot;Asia/Jerusalem&quot;,
+    &quot;Africa/Harare&quot;,
+    &quot;Europe/Moscow&quot;,
+    &quot;Asia/Kuwait&quot;,
+    &quot;Africa/Nairobi&quot;,
+    &quot;Asia/Baghdad&quot;,
+    &quot;Asia/Tehran&quot;,
+    &quot;Asia/Dubai&quot;,
+    &quot;Asia/Baku&quot;,
+    &quot;Asia/Kabul&quot;,
+    &quot;Asia/Yekaterinburg&quot;,
+    &quot;Asia/Karachi&quot;,
+    &quot;Asia/Kolkata&quot;,
+    &quot;Asia/Kathmandu&quot;,
+    &quot;Asia/Dhaka&quot;,
+    &quot;Asia/Colombo&quot;,
+    &quot;Asia/Almaty&quot;,
+    &quot;Asia/Rangoon&quot;,
+    &quot;Asia/Bangkok&quot;,
+    &quot;Asia/Krasnoyarsk&quot;,
+    &quot;Asia/Shanghai&quot;,
+    &quot;Asia/Kuala_Lumpur&quot;,
+    &quot;Asia/Taipei&quot;,
+    &quot;Australia/Perth&quot;,
+    &quot;Asia/Irkutsk&quot;,
+    &quot;Asia/Seoul&quot;,
+    &quot;Asia/Tokyo&quot;,
+    &quot;Asia/Yakutsk&quot;,
+    &quot;Australia/Darwin&quot;,
+    &quot;Australia/Adelaide&quot;,
+    &quot;Australia/Sydney&quot;,
+    &quot;Australia/Brisbane&quot;,
+    &quot;Australia/Hobart&quot;,
+    &quot;Asia/Vladivostok&quot;,
+    &quot;Pacific/Guam&quot;,
+    &quot;Asia/Magadan&quot;,
+    &quot;Pacific/Fiji&quot;,
+    &quot;Pacific/Auckland&quot;,
+    &quot;Pacific/Tongatapu&quot;
+  ];
+  
+  const i18n = {
+    &quot;Etc/GMT+12&quot;: &quot;International Date Line West&quot;,
+    &quot;Pacific/Midway&quot;: &quot;Midway Island, Samoa&quot;,
+    &quot;Pacific/Honolulu&quot;: &quot;Hawaii&quot;,
+    &quot;America/Juneau&quot;: &quot;Alaska&quot;,
+    &quot;America/Dawson&quot;: &quot;Pacific Time (US and Canada); Tijuana&quot;,
+    &quot;America/Boise&quot;: &quot;Mountain Time (US and Canada)&quot;,
+    &quot;America/Chihuahua&quot;: &quot;Chihuahua, La Paz, Mazatlan&quot;,
+    &quot;America/Phoenix&quot;: &quot;Arizona&quot;,
+    &quot;America/Chicago&quot;: &quot;Central Time (US and Canada)&quot;,
+    &quot;America/Regina&quot;: &quot;Saskatchewan&quot;,
+    &quot;America/Mexico_City&quot;: &quot;Guadalajara, Mexico City, Monterrey&quot;,
+    &quot;America/Belize&quot;: &quot;Central America&quot;,
+    &quot;America/Detroit&quot;: &quot;Eastern Time (US and Canada)&quot;,
+    &quot;America/Indiana/Indianapolis&quot;: &quot;Indiana (East)&quot;,
+    &quot;America/Bogota&quot;: &quot;Bogota, Lima, Quito&quot;,
+    &quot;America/Glace_Bay&quot;: &quot;Atlantic Time (Canada)&quot;,
+    &quot;America/Caracas&quot;: &quot;Caracas, La Paz&quot;,
+    &quot;America/Santiago&quot;: &quot;Santiago&quot;,
+    &quot;America/St_Johns&quot;: &quot;Newfoundland and Labrador&quot;,
+    &quot;America/Sao_Paulo&quot;: &quot;Brasilia&quot;,
+    &quot;America/Argentina/Buenos_Aires&quot;: &quot;Buenos Aires, Georgetown&quot;,
+    &quot;America/Godthab&quot;: &quot;Greenland&quot;,
+    &quot;Etc/GMT+2&quot;: &quot;Mid-Atlantic&quot;,
+    &quot;Atlantic/Azores&quot;: &quot;Azores&quot;,
+    &quot;Atlantic/Cape_Verde&quot;: &quot;Cape Verde Islands&quot;,
+    &quot;Europe/London&quot;: &quot;Dublin, Edinburgh, Lisbon, London&quot;,
+    &quot;Africa/Casablanca&quot;: &quot;Casablanca, Monrovia&quot;,
+    &quot;Atlantic/Canary&quot;: &quot;Canary Islands&quot;,
+    &quot;Europe/Belgrade&quot;: &quot;Belgrade, Bratislava, Budapest, Ljubljana, Prague&quot;,
+    &quot;Europe/Sarajevo&quot;: &quot;Sarajevo, Skopje, Warsaw, Zagreb&quot;,
+    &quot;Europe/Brussels&quot;: &quot;Brussels, Copenhagen, Madrid, Paris&quot;,
+    &quot;Europe/Amsterdam&quot;: &quot;Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna&quot;,
+    &quot;Africa/Algiers&quot;: &quot;West Central Africa&quot;,
+    &quot;Europe/Bucharest&quot;: &quot;Bucharest&quot;,
+    &quot;Africa/Cairo&quot;: &quot;Cairo&quot;,
+    &quot;Europe/Helsinki&quot;: &quot;Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius&quot;,
+    &quot;Europe/Athens&quot;: &quot;Athens, Istanbul, Minsk&quot;,
+    &quot;Asia/Jerusalem&quot;: &quot;Jerusalem&quot;,
+    &quot;Africa/Harare&quot;: &quot;Harare, Pretoria&quot;,
+    &quot;Europe/Moscow&quot;: &quot;Moscow, St. Petersburg, Volgograd&quot;,
+    &quot;Asia/Kuwait&quot;: &quot;Kuwait, Riyadh&quot;,
+    &quot;Africa/Nairobi&quot;: &quot;Nairobi&quot;,
+    &quot;Asia/Baghdad&quot;: &quot;Baghdad&quot;,
+    &quot;Asia/Tehran&quot;: &quot;Tehran&quot;,
+    &quot;Asia/Dubai&quot;: &quot;Abu Dhabi, Muscat&quot;,
+    &quot;Asia/Baku&quot;: &quot;Baku, Tbilisi, Yerevan&quot;,
+    &quot;Asia/Kabul&quot;: &quot;Kabul&quot;,
+    &quot;Asia/Yekaterinburg&quot;: &quot;Ekaterinburg&quot;,
+    &quot;Asia/Karachi&quot;: &quot;Islamabad, Karachi, Tashkent&quot;,
+    &quot;Asia/Kolkata&quot;: &quot;Chennai, Kolkata, Mumbai, New Delhi&quot;,
+    &quot;Asia/Kathmandu&quot;: &quot;Kathmandu&quot;,
+    &quot;Asia/Dhaka&quot;: &quot;Astana, Dhaka&quot;,
+    &quot;Asia/Colombo&quot;: &quot;Sri Jayawardenepura&quot;,
+    &quot;Asia/Almaty&quot;: &quot;Almaty, Novosibirsk&quot;,
+    &quot;Asia/Rangoon&quot;: &quot;Yangon Rangoon&quot;,
+    &quot;Asia/Bangkok&quot;: &quot;Bangkok, Hanoi, Jakarta&quot;,
+    &quot;Asia/Krasnoyarsk&quot;: &quot;Krasnoyarsk&quot;,
+    &quot;Asia/Shanghai&quot;: &quot;Beijing, Chongqing, Hong Kong SAR, Urumqi&quot;,
+    &quot;Asia/Kuala_Lumpur&quot;: &quot;Kuala Lumpur, Singapore&quot;,
+    &quot;Asia/Taipei&quot;: &quot;Taipei&quot;,
+    &quot;Australia/Perth&quot;: &quot;Perth&quot;,
+    &quot;Asia/Irkutsk&quot;: &quot;Irkutsk, Ulaanbaatar&quot;,
+    &quot;Asia/Seoul&quot;: &quot;Seoul&quot;,
+    &quot;Asia/Tokyo&quot;: &quot;Osaka, Sapporo, Tokyo&quot;,
+    &quot;Asia/Yakutsk&quot;: &quot;Yakutsk&quot;,
+    &quot;Australia/Darwin&quot;: &quot;Darwin&quot;,
+    &quot;Australia/Adelaide&quot;: &quot;Adelaide&quot;,
+    &quot;Australia/Sydney&quot;: &quot;Canberra, Melbourne, Sydney&quot;,
+    &quot;Australia/Brisbane&quot;: &quot;Brisbane&quot;,
+    &quot;Australia/Hobart&quot;: &quot;Hobart&quot;,
+    &quot;Asia/Vladivostok&quot;: &quot;Vladivostok&quot;,
+    &quot;Pacific/Guam&quot;: &quot;Guam, Port Moresby&quot;,
+    &quot;Asia/Magadan&quot;: &quot;Magadan, Solomon Islands, New Caledonia&quot;,
+    &quot;Pacific/Fiji&quot;: &quot;Fiji Islands, Kamchatka, Marshall Islands&quot;,
+    &quot;Pacific/Auckland&quot;: &quot;Auckland, Wellington&quot;,
+    &quot;Pacific/Tongatapu&quot;: &quot;Nuku&#39;alofa&quot;
+  }
+  
+  const selectorOptions = moment.tz.names()
+    .filter(tz =&gt; {
+      return timezones.includes(tz)
+    })
+    .reduce((memo, tz) =&gt; {
+      memo.push({
+        name: tz,
+        offset: moment.tz(tz).utcOffset()
+      });
+      
+      return memo;
+    }, [])
+    .sort((a, b) =&gt; {
+      return a.offset - b.offset
+    })
+    .reduce((memo, tz) =&gt; {
+      const timezone = tz.offset ? moment.tz(tz.name).format(&#39;Z&#39;) : &#39;&#39;;
+  
+      return memo.concat(`&lt;option value=&quot;${tz.name}&quot;&gt;(GMT${timezone}) ${_t(tz.name)}&lt;/option&gt;`);
+    }, &quot;&quot;);
+    
+  document.querySelector(&quot;.js-Selector&quot;).innerHTML = selectorOptions;
+  
+  /*
+  $(&quot;.js-Selector&quot;).on(&quot;change&quot;, e =&gt; {
+    const timestamp = dateTimeUtc.unix();
+    const offset = moment.tz(e.target.value).utcOffset() * 60;
+    const dateTimeLocal = moment.unix(timestamp + offset).utc();
+  
+    document.querySelector(&quot;.js-TimeLocal&quot;).innerHTML = dateTimeLocal.format(&quot;ddd, DD MMM YYYY HH:mm:ss&quot;);
+  });
+  */
+  
+  document.querySelector(&quot;.js-Selector&quot;).value = &quot;&quot;;
+  
+  function formatTime(time) {
+      if(time == &#39;00:00&#39;) {
+        return &#39;00:00 (midnight)&#39;;
+    } else if(time == &#39;12:00&#39;) {
+        return &#39;12:00 (noon)&#39;;
+    } else {
+        if(time &gt; &#39;12:00&#39;) {
+            return time + &quot; (&quot; + (Number(time.substr(0, 2)) - 12) + &#39;:&#39; + (time.substr(3, 2) + &#39;PM&#39;) + &quot;)&quot;;
+        } else {
+            return time;
+        }
+    }
+  }
+  
+  function onChange() {
+    var startTimes0 = {&#39;1&#39;: [&#39;00:30&#39;, &#39;09:00&#39;],
+                      &#39;2&#39;: [&#39;04:00&#39;, &#39;12:30&#39;],
+                      &#39;3&#39;: [&#39;07:30&#39;, &#39;16:00&#39;],
+                      &#39;4&#39;: [&#39;14:00&#39;, &#39;22:30&#39;],
+                      &#39;5&#39;: [&#39;17:30&#39;, &#39;02:00&#39;]}
+    
+    var startTimes = {&#39;1&#39;: [&#39;00:30&#39;, &#39;05:00&#39;],
+                        &#39;2&#39;: [&#39;07:30&#39;, &#39;12:00&#39;],
+                        &#39;3&#39;: [&#39;07:30&#39;, &#39;12:00&#39;],
+                        &#39;4&#39;: [&#39;17:30&#39;, &#39;22:00&#39;],
+                        &#39;5&#39;: [&#39;17:30&#39;, &#39;22:00&#39;]}
+
+    var startTimes2 = {&#39;1&#39;: [&#39;06:00&#39;, &#39;09:00&#39;],
+                        &#39;2&#39;: [&#39;04:00&#39;, &#39;07:00&#39;],
+                        &#39;3&#39;: [&#39;13:00&#39;, &#39;16:00&#39;],
+                        &#39;4&#39;: [&#39;14:00&#39;, &#39;17:00&#39;],
+                        &#39;5&#39;: [&#39;23:00&#39;, &#39;02:00&#39;]}
+    
+    var regions = {&#39;1&#39;: &#39;Eastern Asia / Australia&#39;,
+                   &#39;2&#39;: &#39;Middle East / India&#39;,
+                   &#39;3&#39;: &#39;Europe / Africa&#39;,
+                   &#39;4&#39;: &#39;Eastern Americas&#39;,
+                   &#39;5&#39;: &#39;Western Americas&#39;}
+
+    
+
+      var deltas = []
+      for(var prop in startTimes0) {
+        var startTime0 = moment.tz(&quot;2021-07-13 &quot; + startTimes0[prop][0], &quot;UTC&quot;).clone().tz(document.getElementById(&#39;timezone&#39;).value).format().substr(11, 5);
+      var fracHour = Number(startTime0.substr(0, 2)) + Number(startTime0.substr(3, 2)) / 60.0;
+      deltas.push(Math.abs(fracHour - 8.6));
+    }
+    var bestDelta = deltas.indexOf(Math.min.apply(Math, deltas));
+  
+  
+    var theStr = &quot;&lt;p&gt;&quot;;
+    var i = 0;
+    for(var prop in startTimes) {
+        var startTime = moment.tz(&quot;2021-07-13 &quot; + startTimes[prop][0], &quot;UTC&quot;).clone().tz(document.getElementById(&#39;timezone&#39;).value).format().substr(11, 5);
+        var endTime = moment.tz(&quot;2021-07-13 &quot; + startTimes[prop][1], &quot;UTC&quot;).clone().tz(document.getElementById(&#39;timezone&#39;).value).format().substr(11, 5);
+        
+        var startTime2 = moment.tz(&quot;2021-07-13 &quot; + startTimes2[prop][0], &quot;UTC&quot;).clone().tz(document.getElementById(&#39;timezone&#39;).value).format().substr(11, 5);
+        var endTime2 = moment.tz(&quot;2021-07-13 &quot; + startTimes2[prop][1], &quot;UTC&quot;).clone().tz(document.getElementById(&#39;timezone&#39;).value).format().substr(11, 5);
+        
+
+      var bold = false;
+        if( bestDelta == i) {
+          bold = true;
+        theStr += &quot;&lt;b&gt;&quot;
+      }
+      theStr += &quot;&lt;u&gt;SLOT &quot; + prop + &quot; (daytime in &quot; + regions[prop] + &quot;) &lt;br&gt;&quot;
+        if(bestDelta == i) {
+          wasBold = true;
+          theStr += &quot;&lt;/b&gt;&quot;
+      }
+      else {
+          theStr += &quot;&quot;
+      }
+      if(prop.valueOf() === new String(&quot;2&quot;).valueOf() || prop.valueOf() === new String(&quot;4&quot;).valueOf()){
+        theStr += &quot;&lt;/u&gt; projects are &quot; + 
+                &#39;&lt;span style = &quot;color:red;font-family:monospace;font-size:12pt;&quot;&gt;&#39; + formatTime(startTime2) + &quot; - &quot; + 
+                  formatTime(endTime2)+&#39;&lt;/span&gt; local time;&#39;;
+        theStr += &quot;&lt;br&gt; coursework is &quot; + 
+                &#39;&lt;span style = &quot;color:blue;font-family:monospace;font-size:12pt;&quot;&gt;&#39; + formatTime(startTime) + &quot; - &quot; + 
+                  formatTime(endTime)+&#39;&lt;/span&gt; local time;&#39;;
+    }
+    else {    
+    theStr += &quot;&lt;/u&gt; coursework is &quot; + 
+                &#39;&lt;span style = &quot;color:blue;font-family:monospace;font-size:12pt;&quot;&gt;&#39; + formatTime(startTime) + &quot; - &quot; + 
+                  formatTime(endTime)+&#39;&lt;/span&gt; local time;&#39;;
+      theStr += &quot;&lt;br&gt; projects are &quot; + 
+                &#39;&lt;span style = &quot;color:red;font-family:monospace;font-size:12pt;&quot;&gt;&#39; + formatTime(startTime2) + &quot; - &quot; + 
+                  formatTime(endTime2)+&#39;&lt;/span&gt; local time;&#39;;
+                }
+                
+    theStr += &quot;&lt;/p&gt;&quot;
+      i++;
+    }
+    document.getElementById(&#39;times&#39;).innerHTML = theStr;
+  }
+  
+  onChange();
+
+&lt;/script&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot; integrity=&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot; integrity=&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot; integrity=&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials/Schedule"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    <div id="main-content" class="row noprint">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
         
               <div>
@@ -1251,15 +1649,13 @@ const _t = (s) =&gt; {
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Neuromatch<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Neuromatch<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
