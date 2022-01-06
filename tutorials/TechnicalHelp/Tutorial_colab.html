@@ -854,19 +854,20 @@
         </div>
     </div>
 </div>
-    <!-- Table of contents that is only displayed when printing the page -->
-    <div id="jb-print-docs-body" class="onlyprint">
-        <h1>Using Google Colab</h1>
-        <!-- Table of contents -->
-        <div id="print-main-content" class="row">
-            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
-            <div id="jb-print-toc">
-                
-                <div>
-                    <h2> Contents </h2>
-                </div>
-                <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using Google Colab</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advice-for-using-colab">
    Advice for using Colab
@@ -874,7 +875,9 @@
  </li>
 </ul>
 
-                </nav>
+                        </nav>
+                    </div>
+                </div>
             </div>
             
               <div>
@@ -915,52 +918,8 @@ you can click the “Open in Colab” button at the top of each page to launch i
 
               </div>
               
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="row noprint">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="using-google-colab">
-<h1>Using Google Colab<a class="headerlink" href="#using-google-colab" title="Permalink to this headline">¶</a></h1>
-<p>If you have access to Google Colab,
-you can click the “Open in Colab” button at the top of each page to launch it in an interactive environment where you can write and run code.</p>
-<div class="section" id="advice-for-using-colab">
-<h2>Advice for using Colab<a class="headerlink" href="#advice-for-using-colab" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Make a local copy to your Drive: otherwise changes you make (e.g. notes you take, code you write, etc) will not be saved</p></li>
-<li><p>Do not edit the same colab directly as a group. Unlike Google Docs, one person’s version will overwrite another’s. If your browser happens to be open, it can overwrite anything that has been done by others since the last version in your browser!</p></li>
-<li><p>Colab does not have version control! Use git for this if you want to collaborate (on a group project colab for example)</p></li>
-</ul>
-</div>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./tutorials/TechnicalHelp"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="Jupyterbook.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -977,7 +936,7 @@ you can click the “Open in Colab” button at the top of each page to launch i
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">

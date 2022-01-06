@@ -858,19 +858,20 @@
         </div>
     </div>
 </div>
-    <!-- Table of contents that is only displayed when printing the page -->
-    <div id="jb-print-docs-body" class="onlyprint">
-        <h1>Models and Data sets</h1>
-        <!-- Table of contents -->
-        <div id="print-main-content" class="row">
-            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
-            <div id="jb-print-toc">
-                
-                <div>
-                    <h2> Contents </h2>
-                </div>
-                <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Models and Data sets</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#model-search">
    Model Search
@@ -883,7 +884,9 @@
  </li>
 </ul>
 
-                </nav>
+                        </nav>
+                    </div>
+                </div>
             </div>
             
               <div>
@@ -945,73 +948,8 @@
 
               </div>
               
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="row noprint">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="models-and-data-sets">
-<h1>Models and Data sets<a class="headerlink" href="#models-and-data-sets" title="Permalink to this headline">¶</a></h1>
-<p>Here are some places where you can search for models or datasets.</p>
-<div class="section" id="model-search">
-<h2>Model Search<a class="headerlink" href="#model-search" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://models.roboflow.com/">https://models.roboflow.com/</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/models">https://huggingface.co/models</a></p></li>
-<li><p><a class="reference external" href="https://modelzoo.co/">https://modelzoo.co/</a></p></li>
-<li><p><a class="reference external" href="https://github.com/onnx/models">https://github.com/onnx/models</a></p></li>
-<li><p><a class="reference external" href="https://github.com/rwightman/pytorch-image-models">https://github.com/rwightman/pytorch-image-models</a></p></li>
-<li><p><a class="reference external" href="https://github.com/Cadene/pretrained-models.pytorch">https://github.com/Cadene/pretrained-models.pytorch</a></p></li>
-<li><p><a class="reference external" href="https://github.com/qubvel/segmentation_models.pytorch">https://github.com/qubvel/segmentation_models.pytorch</a></p></li>
-<li><p><a class="reference external" href="https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch">https://github.com/zylo117/Yet-Another-EfficientDet-Pytorch</a></p></li>
-<li><p><a class="reference external" href="https://github.com/balavenkatesh3322/CV-pretrained-model">https://github.com/balavenkatesh3322/CV-pretrained-model</a></p></li>
-<li><p><a class="reference external" href="https://github.com/snakers4/silero-models">https://github.com/snakers4/silero-models</a></p></li>
-</ul>
-</div>
-<div class="section" id="metadataset-search">
-<h2>Metadataset Search<a class="headerlink" href="#metadataset-search" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Hugginface: <a class="reference external" href="https://huggingface.co/datasets">https://huggingface.co/datasets</a></p></li>
-<li><p>Kaggle: <a class="reference external" href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a></p></li>
-<li><p>Awesome Public Datasets: <a class="reference external" href="https://github.com/awesomedata/awesome-public-datasets">https://github.com/awesomedata/awesome-public-datasets</a></p></li>
-<li><p>Uci machine learning repository: <a class="reference external" href="https://archive.ics.uci.edu/ml/index.php">https://archive.ics.uci.edu/ml/index.php</a></p></li>
-<li><p>Zindi Datasets: <a class="reference external" href="https://zindi.africa/competitions?data_type=NLP">https://zindi.africa/competitions?data_type=NLP</a></p></li>
-<li><p>Dryad: <a class="reference external" href="https://datadryad.org">https://datadryad.org</a></p></li>
-<li><p>Google Dataset Search: <a class="reference external" href="https://datasetsearch.research.google.com">https://datasetsearch.research.google.com</a></p></li>
-<li><p>Zenodo: <a class="reference external" href="https://zenodo.org">https://zenodo.org</a></p></li>
-<li><p>Compilation of EEG Datasets: <a class="reference external" href="https://github.com/meagmohit/EEG-Datasets">https://github.com/meagmohit/EEG-Datasets</a></p></li>
-<li><p>Computer Vision Datasets: <a class="reference external" href="https://visualdata.io/discovery">https://visualdata.io/discovery</a></p></li>
-</ul>
-</div>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./projects/docs"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="../Neuroscience/neuro_seq_to_seq.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1021,7 +959,7 @@
         </div>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">

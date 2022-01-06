@@ -896,19 +896,20 @@
         </div>
     </div>
 </div>
-    <!-- Table of contents that is only displayed when printing the page -->
-    <div id="jb-print-docs-body" class="onlyprint">
-        <h1>Ideas</h1>
-        <!-- Table of contents -->
-        <div id="print-main-content" class="row">
-            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
-            <div id="jb-print-toc">
-                
-                <div>
-                    <h2> Contents </h2>
-                </div>
-                <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ideas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Ideas
@@ -958,7 +959,9 @@
  </li>
 </ul>
 
-                </nav>
+                        </nav>
+                    </div>
+                </div>
             </div>
             
               <div>
@@ -1064,117 +1067,8 @@ Potential research goals: comparing ANN activity and neural activity during imag
 
               </div>
               
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="row noprint">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="ideas">
-<h1>Ideas<a class="headerlink" href="#ideas" title="Permalink to this headline">¶</a></h1>
-<p>Different categories of DL projects (in order of increasing expertise):</p>
-<ol class="simple">
-<li><p>As an analysis toolkit to solve a problem</p></li>
-<li><p>As a model of Brain or Behavior</p></li>
-<li><p>Making Deep Learning pipeline more efficient / Understanding why a DL framework works (Conceptual Question). Can we make neural networks more like the brain?</p></li>
-</ol>
-</div>
-<div class="section" id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="nma-curated">
-<h2><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects">NMA curated</a><a class="headerlink" href="#nma-curated" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_decisions.ipynb">Steinmetz Neuropixels behavior</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_steinmetz_extra.ipynb">Steinmetz LFP behavior</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_spontaneous.ipynb">Stringer spontaneous</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_stringer_orientations.ipynb">Stringer orientations</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_SDK.ipynb">Allen Institute 2p with behavior, SDK</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_pre_processed_file.ipynb">Allen Institute 2p with behavior, simplified</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI">Human Connectome Project FMRI</a><br />
-<a class="reference external" href="https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/fMRI/load_kay_images.ipynb">Kay natural images FMRI</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects/fMRI">Bonner/Cichy etc FMRI</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects/ECoG">ECoG</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/blob/master/projects/behavior/Loading_CalMS21_data.ipynb">Caltech social behavior</a><br />
-<a class="reference external" href="https://github.com/NeuromatchAcademy/course-content/tree/master/projects/behavior">IBL mouse decision making</a></p>
-</div>
-<div class="section" id="crcns">
-<h2><a class="reference external" href="https://crcns.org/">CRCNS</a><a class="headerlink" href="#crcns" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://crcns.org/data-sets/vc">Visual cortex</a><br />
-<a class="reference external" href="https://crcns.org/data-sets/motor-cortex">Motor cortex</a><br />
-<a class="reference external" href="https://crcns.org/data-sets/hc">Hippocampus</a></p>
-</div>
-<div class="section" id="janelia-figshare">
-<h2><a class="reference external" href="https://janelia.figshare.com">Janelia Figshare</a><a class="headerlink" href="#janelia-figshare" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.janelia.org/project-team/flyem/hemibrain">Fly Connectome</a><br />
-<a class="reference external" href="https://hipposeq.janelia.org/">Hipposeq</a><br />
-<a class="reference external" href="https://www.janelia.org/project-team/mouselight">MouseLight</a><br />
-<a class="reference external" href="https://openorganelle.janelia.org/">OpenOrganelle</a><br />
-<a class="reference external" href="https://janelia.figshare.com/articles/dataset/Recordings_of_ten_thousand_neurons_in_visual_cortex_during_spontaneous_behaviors/6163622">Stringer1: 10,000 V1 neurons with spontaneous activity</a><br />
-<a class="reference external" href="https://janelia.figshare.com/articles/dataset/Recordings_of_ten_thousand_neurons_in_visual_cortex_in_response_to_2_800_natural_images/6845348">Stringer2: 10,000 V1 neurons with responses to 2,800 images</a><br />
-<a class="reference external" href="https://janelia.figshare.com/articles/dataset/Recordings_of_20_000_neurons_from_V1_in_response_to_oriented_stimuli/8279387">Stringer3: 20,000 V1 neurons with responses to fine orientations</a><br />
-<a class="reference external" href="https://janelia.figshare.com/articles/dataset/Eight-probe_Neuropixels_recordings_during_spontaneous_behaviors/7739750">Steinmetz: 3,000 ephys neurons across brain with spontaneous activity</a></p>
-</div>
-<div class="section" id="others">
-<h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://buzsakilab.com/wp/database/">Buzsaki lab webpage</a><br />
-<a class="reference external" href="https://www.kaggle.com/search?q=EEG+in%3Adatasets">EEG datasets</a><br />
-<a class="reference external" href="https://www.kaggle.com/search?q=BCI+in%3Adatasets">BCI datasets</a><br />
-<a class="reference external" href="https://www.kaggle.com/fabriciotorquato/eeg-data-from-hands-movement">Motor control</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/saurabhshahane/handwriting-bci">Handwriting BCI dataset</a>. Relatively recent dataset (from Krishna Shenoy’s lab) of motor cortex neural activity recordings during handwriting, for testing RNN models of text decoding.</p>
-<p>Predict when or where an epileptic seizure will happen (<a class="reference external" href="https://www.epilepsyecosystem.org/neurovista-trial-1">neurovista</a>, <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition">seizure_recognition</a>).</p>
-<p><a class="reference external" href="http://www.mindbigdata.com/opendb">MNIST of the Brain</a> (low resolution EEG in response to MNIST digits)</p>
-<p><a class="reference external" href="http://www.mindbigdata.com/opendb/imagenet.html">ImageNet of the Brain</a> (low resolution EEG in response to Imagenet)</p>
-<p><a class="reference external" href="http://www.studyforrest.org/data.html">StudyForrest</a> (high resolution fMRI data while watching/listening to Forrest Gump along with speech,audio,eyegaze annotation)</p>
-<p><a class="reference external" href="https://www.kaggle.com/c/trends-assessment-prediction/data">Trends Neuroimaging</a> (MRI data with age and assessment scores)</p>
-<p><a class="reference external" href="https://www.nature.com/search?subject=neuroscience&amp;journal=sdata&amp;page=1">Nature Scientific data</a> (neuroscience related)</p>
-<p><a class="reference external" href="https://things-initiative.org/">THINGS</a> behavior and neuroscience datasets</p>
-</div>
-<div class="section" id="brain-score">
-<h2>Brain-Score<a class="headerlink" href="#brain-score" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://paperswithcode.com/dataset/brain-score">About Brainscore</a> , <a class="reference external" href="http://www.brain-score.org/">Main Website</a>, <a class="reference external" href="https://brain-score.readthedocs.io/en/latest/index.html">Tutorial</a>, <a class="reference external" href="https://www.biorxiv.org/content/10.1101/407007v2">preprint</a>.</p>
-<p>Overview: contains some datasets about behaviour and neural activity during image recognition tasks, as well as tools to compare similarity of ANN models to neural/behavioural data.
-Potential research goals: comparing ANN activity and neural activity during image recognition. (*also need to look deeper at what datasets are available, might include more things). How does model architecture, learning rules influence similarity &amp; performance?</p>
-<p>Very preliminary <a class="reference external" href="https://colab.research.google.com/drive/1KUkwsbjDwLlmuoD3lPzmgTY1cYtSDpzR?usp=sharing">colab</a>.</p>
-</div>
-<div class="section" id="allen-brain-observatory">
-<h2>Allen Brain Observatory<a class="headerlink" href="#allen-brain-observatory" title="Permalink to this headline">¶</a></h2>
-<p>The Allen Brain Observatory contains several relevant datasets.</p>
-<p><a class="reference external" href="http://observatory.brain-map.org/visualcoding/stimulus/natural_movies">Older 2p data</a> with natural movie presentations</p>
-<p>Very recent 2p data with behavior from NMA-CN: <a class="reference external" href="https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_pre_processed_file.ipynb">Pre-processed subsample</a>; <a class="reference external" href="https://colab.research.google.com/github/NeuromatchAcademy/course-content/blob/master/projects/neurons/load_Allen_Visual_Behavior_from_SDK.ipynb">Entire dataset (SDK)</a>; <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">Getting started</a>; A short description of the dataset can be watched <a class="reference external" href="https://www.youtube.com/watch?v=3YP-GYvYnuA">here</a>.</p>
-<p><a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">Neuropixels data</a> with <a class="reference external" href="https://brainmapportal-live-4cc80a57cd6e400d854-f7fdcae.divio-media.net/filer_public/0f/5d/0f5d22c9-f8f6-428c-9f7a-2983631e72b4/neuropixels_cheat_sheet_nov_2019.pdf">cheat sheet</a>. <a class="reference external" href="https://colab.research.google.com/drive/1TPkgSzIPdyrAnQBAqZK9x7baYK6WvskK?usp=sharing">Basic colab</a> for fetching and parsing Allen Neuropixels dataset (very rudimentary right now).</p>
-</div>
-<div class="section" id="bciaut-p300">
-<h2>BCIAUT-P300<a class="headerlink" href="#bciaut-p300" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnins.2020.568104/full">Reference paper</a>, <a class="reference external" href="https://www.kaggle.com/disbeat/bciaut-p300">Dataset</a></p>
-<p>This a typical P300 dataset contains data from 15 subjects and 7 sessions for each subject.</p>
-</div>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./projects/Neuroscience"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="slides.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1191,7 +1085,7 @@ Potential research goals: comparing ANN activity and neural activity during imag
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">

@@ -859,19 +859,20 @@
         </div>
     </div>
 </div>
-    <!-- Table of contents that is only displayed when printing the page -->
-    <div id="jb-print-docs-body" class="onlyprint">
-        <h1>Ideas</h1>
-        <!-- Table of contents -->
-        <div id="print-main-content" class="row">
-            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
-            <div id="jb-print-toc">
-                
-                <div>
-                    <h2> Contents </h2>
-                </div>
-                <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ideas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Ideas
@@ -884,7 +885,9 @@
  </li>
 </ul>
 
-                </nav>
+                        </nav>
+                    </div>
+                </div>
             </div>
             
               <div>
@@ -939,66 +942,8 @@ Option 2 - Compare the performance of two models in estimating question similari
 
               </div>
               
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="row noprint">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="ideas">
-<h1>Ideas<a class="headerlink" href="#ideas" title="Permalink to this headline">¶</a></h1>
-<ol class="simple">
-<li><p>Question pairs <a class="reference external" href="https://www.kaggle.com/c/quora-question-pairs/data">dataset</a>.</p></li>
-</ol>
-<p>Idea:  Train a model to identify similar questions. Then, quantify how important it is to take into account word order in analyzing questions.</p>
-<p>Method:<br />
-Option 1 - Train an order-sensible (possibly RNN) method and see how the results degrade when changing word order.<br />
-Option 2 - Compare the performance of two models in estimating question similarity. One that takes into account word order (possibly RNN) and one that does not (Bag of Words).</p>
-<ol class="simple">
-<li><p>Fake news <a class="reference external" href="https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset">dataset</a>.</p></li>
-</ol>
-<p>Idea: To evaluate the difference (pros and cons) between using a pre-trained word embedding vs training an embedding specific for the task.</p>
-<p>Method: Train a text classification algorithm (fake news vs real news dataset suggested) in two different ways: (1) Using a pre-trained word embedding (trained on the same corpus with CBOW or download it already trained on another corpus) and (2) letting the network to learn the word embedding during the training for the classification task.</p>
-<ol class="simple">
-<li><p>Toxic wikipedia <a class="reference external" href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data">dataset</a></p></li>
-</ol>
-<p>Idea: Train an algorithm to detect and categorize Wikipedia Toxic comments. Try different approaches to manage class imbalance.</p>
-<p>Method: Train a multiclass text classification algorithm on a Wikipedia comments dataset.</p>
-</div>
-<div class="section" id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
-<p>Pretrained machine translation from <a class="reference external" href="https://huggingface.co/datasets?filter=task_ids:machine-translation">huggingface</a></p>
-<p>https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/</p>
-<p><a class="reference external" href="https://analyticsindiamag.com/10-nlp-open-source-datasets-to-start-your-first-nlp-project/">Beginner NLP datasets</a></p>
-<p><a class="reference external" href="https://research.fb.com/downloads/babi/">Description Q&amp;A</a></p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./projects/NaturalLanguageProcessing"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="slides.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1015,7 +960,7 @@ Option 2 - Compare the performance of two models in estimating question similari
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">

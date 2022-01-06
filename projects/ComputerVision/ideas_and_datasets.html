@@ -891,19 +891,20 @@
         </div>
     </div>
 </div>
-    <!-- Table of contents that is only displayed when printing the page -->
-    <div id="jb-print-docs-body" class="onlyprint">
-        <h1>Ideas</h1>
-        <!-- Table of contents -->
-        <div id="print-main-content" class="row">
-            <div class="col-12 col-md-12 pl-md-5 pr-md-5">
-            <div id="jb-print-toc">
-                
-                <div>
-                    <h2> Contents </h2>
-                </div>
-                <nav aria-label="Page">
-                    <ul class="visible nav section-nav flex-column">
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ideas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Ideas
@@ -948,7 +949,9 @@
  </li>
 </ul>
 
-                </nav>
+                        </nav>
+                    </div>
+                </div>
             </div>
             
               <div>
@@ -1014,77 +1017,8 @@
 
               </div>
               
-            </div>
-        </div>
-    </div>
-    <div id="main-content" class="row noprint">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
-                
-  <div class="section" id="ideas">
-<h1>Ideas<a class="headerlink" href="#ideas" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="biological-image-analysis">
-<h2>Biological Image Analysis<a class="headerlink" href="#biological-image-analysis" title="Permalink to this headline">¶</a></h2>
-<p>Count cells: use the <a class="reference external" href="https://deeplearning.neuromatch.io/projects/code/segmentation_denoising.html">segmentation notebook</a> and/or other approaches.</p>
-<p>Denoise with <a class="reference external" href="https://github.com/juglab/n2v">noise2void</a>.</p>
-<p>Try to replace the U-net with a <a class="reference external" href="https://aswali.github.io/WNet/">W-net</a>.</p>
-<p>Try <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2021.05.17.444529v1.full">self-supervised cell segmentation</a> with modified U-nets.</p>
-</div>
-<div class="section" id="using-image-features-to-predict-human-behavior">
-<h2>Using image features to predict human behavior<a class="headerlink" href="#using-image-features-to-predict-human-behavior" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://things-initiative.org">THINGS</a>: <a class="reference external" href="https://things-initiative.org/projects/things-images/">images</a>, <a class="reference external" href="https://osf.io/jum2f/">behavioral data</a>, <a class="reference external" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223792">paper</a>.</p>
-</div>
-<div class="section" id="deep-leakage-from-gradients">
-<h2>Deep leakage from gradients<a class="headerlink" href="#deep-leakage-from-gradients" title="Permalink to this headline">¶</a></h2>
-<p>Background. Privacy is essential in deep learning, particularly in federated settings/environments where different clients want to train models together without sharing their private data. An adopted method of hiding clients personal information while training models collaboratively is sharing gradient updates. Gradients have been widely used in federated/collaborative learning, however it has been shown that an attacker can retrieve the exact input data simply from the shared gradients <a class="reference external" href="https://arxiv.org/abs/1906.08935">Zhu et al</a>. In this project, your task is to reimplement a gradient attack method from this paper and show that one can retrieve pixel wise correct input images that were initially used in the model training.</p>
-</div>
-<div class="section" id="flow-based-vae">
-<h2>Flow-based VAE<a class="headerlink" href="#flow-based-vae" title="Permalink to this headline">¶</a></h2>
-<p>Compare <a class="reference external" href="https://arxiv.org/abs/1912.02762">flow</a>-based VAE to normal VAE for images? See this <a class="reference external" href="https://lilianweng.github.io/lil-log/2018/10/13/flow-based-deep-generative-models.html">post</a>.</p>
-</div>
-<div class="section" id="self-supervised-learning">
-<h2>Self-supervised learning<a class="headerlink" href="#self-supervised-learning" title="Permalink to this headline">¶</a></h2>
-<p>Compare some <a class="reference external" href="https://arxiv.org/abs/2004.11362">contrastive self-supervision</a> methods on image classification problems, e.g. a vanilla supervised training vs training with self-supervision.</p>
-</div>
-<div class="section" id="graph-neural-networks">
-<h2>Graph Neural networks<a class="headerlink" href="#graph-neural-networks" title="Permalink to this headline">¶</a></h2>
-<p>Use the GNN deepwalk embedding on some molecules dataset and use CNN to cluster the molecules. See <a class="reference external" href="https://github.com/rusty1s/pytorch_geometric">ref1</a> and <a class="reference external" href="https://github.com/dsgiitr/graph_nets">ref2</a>.</p>
-</div>
-</div>
-<div class="section" id="datasets">
-<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://things-initiative.org/projects/things-images/">THINGS</a></p>
-<p><a class="reference external" href="https://openneuro.org/public/datasets">OpenNeuro</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle</a></p>
-<p><a class="reference external" href="https://visualdata.io/discovery">VisualData</a></p>
-<p><a class="reference external" href="https://models.roboflow.com/">Models</a></p>
-</div>
-
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./projects/ComputerVision"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
-              </div>
-              
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="slides.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1101,7 +1035,7 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
